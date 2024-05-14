@@ -88,6 +88,7 @@ public class Instruction {
 					case "email":
 						if(informationSet.length < 2) {
 							System.out.println("No email in the instruction identified");
+							break;
 						}
 						email = informationSet[1];
 						this.contactInformation.put("email" , email);
@@ -95,19 +96,19 @@ public class Instruction {
 					case "phone":
 						if(informationSet.length < 2) {
 							System.out.println("No phone number in the instruction identified");
+							break;
 						}
 						phone = informationSet[1];
-						System.out.println("Phone" + phone);
 						this.contactInformation.put("phone" , phone);
 						break;
 					case "address":
 						if(informationSet.length < 2) {
-							System.out.println("No phone number in the instruction identified");
+							System.out.println("No address in the instruction identified");
+							break;
 						}
 						address = informationSet[1];
 						this.contactInformation.put("address" , address);
 						break;
-						
 					default:
 						System.out.println(Arrays.toString(informationSet));
 						System.out.println("Unrecognized Attribute Or Invalid Command");
@@ -132,8 +133,12 @@ public class Instruction {
 //		validateAddInstruction("add something");
 //		validateAddInstruction("add name ; dob;");
 		Instruction instn = new Instruction();
-		Boolean isValid = instn.validateAddInstruction("add name sujan poudel;birthday 18-07-1996;address 19 albert road strathfield;phone 0426419217;email 20028844@koi.edu.au");
-		System.out.println(isValid);
+//		Boolean isValid = instn.handleAdd("add name sujan poudel;birthday 18-07-1996;address 19 albert road strathfield;phone 0426419217;email 20028844@koi.edu.au");
+//		System.out.println(isValid);
+//		if(isValid) {
+//			instn.
+//		}
+		instn.handleAdd("add name sujan poudel;birthday 18-07-1996;address 19 albert road strathfield;phone 0426419217;email 20028844@koi.edu.au");
 		System.out.println(instn.contactInformation);
 	}
 	
