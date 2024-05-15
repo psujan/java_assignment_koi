@@ -1,0 +1,19 @@
+name sujan poudel
+birthday 18-07-1996
+phone 0426419217 
+email 20028844@koi.edu.au
+address 19 albert road strathfield
+
+name monsoon parajuli
+birthday 07-07-2003
+phone 0421589632
+email 20028894@koi.edu.au
+address 1-17 Elsie road, Burwood
+
+name krishna khanal
+birthday 07-07-1994
+phone 0426897112
+email 20028134@koi.edu.au
+address 12 Swan Av, Richmond
+
+

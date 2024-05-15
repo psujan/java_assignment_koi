@@ -11,6 +11,14 @@ public class PhoneBook {
 		this.address = "";
 	}
 	
+	public String toString() {
+        return "Name: " + name + 
+                "\nBirthday: " + birthday +
+                "\nEmail: " + email +
+                "\nPhone: " + phone+
+                "\nAddress:" + address;
+    }
+	
 	public PhoneBook(String name , String birthday , String phone , String email , String address ) {
 		this.name = name;
 		this.birthday = birthday;

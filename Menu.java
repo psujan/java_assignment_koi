@@ -1,5 +1,6 @@
 package ecbsystem;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -34,6 +35,8 @@ public class Menu {
 			case 1:
 				this.getAddInstruction();
 				break;
+			case 5:
+				this.showAllRecord();
 			default:
 				break;
 		}
@@ -59,5 +62,14 @@ public class Menu {
 	
 	public void getQueryInstruction() {
 		
+	}
+	
+	public void showAllRecord() {
+		EcbController ecb= new EcbController();
+		ArrayList<PhoneBook> records = ecb.getAll();
+		System.out.printf("%-25s %-25s %-25s %-25s%-25s\n" , "Name" , "Phone" , "Birthday" , "Email" ,"Address");
+		for(PhoneBook pb : records) {
+			System.out.printf("%-25s %-25s %-25s %-25s%-25s\n" , pb.getName() , pb.getPhone() , pb.getBirthday() , pb.getEmail() , pb.getAddress());
+		}
 	}
 }

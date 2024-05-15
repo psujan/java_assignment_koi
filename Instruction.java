@@ -21,17 +21,20 @@ public class Instruction {
 	
 	public void handleAdd(String inst) {
 		Boolean isValid = validateAddInstruction(inst);
-		if(isValid) {
-			PhoneBook pBook= new PhoneBook(
-					(String)this.contactInformation.get("name"), 
-					(String)this.contactInformation.get("birthday"), 
-					(String)this.contactInformation.get("phone"),
-					(String)this.contactInformation.get("email"),
-					(String)this.contactInformation.get("address")
-					);
-			EcbController ecb=  new EcbController();
-			ecb.addRecord(pBook);
+		if(!isValid) {
+			System.out.println("Failed to add record");
 		}
+		
+		PhoneBook pBook= new PhoneBook(
+				(String)this.contactInformation.get("name"), 
+				(String)this.contactInformation.get("birthday"), 
+				(String)this.contactInformation.get("phone"),
+				(String)this.contactInformation.get("email"),
+				(String)this.contactInformation.get("address")
+				);
+		EcbController ecb=  new EcbController();
+		ecb.addRecord(pBook);
+		ecb.addRecordsToFile();
 	}
 	
 	public  boolean validateAddInstruction(String inst) {
