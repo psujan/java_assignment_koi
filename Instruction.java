@@ -22,7 +22,8 @@ public class Instruction {
 	public void handleAdd(String inst) {
 		Boolean isValid = validateAddInstruction(inst);
 		if(!isValid) {
-			System.out.println("Failed to add record");
+			System.out.println("Failed to add record from provided instruction :" + inst);
+			return;
 		}
 		
 		PhoneBook pBook= new PhoneBook(
@@ -32,10 +33,30 @@ public class Instruction {
 				(String)this.contactInformation.get("email"),
 				(String)this.contactInformation.get("address")
 				);
+		// check for existing record
+		// if no record found then add a new one else update existing one
 		EcbController ecb=  new EcbController();
-		ecb.addRecord(pBook);
-		ecb.addRecordsToFile();
+		int foundIndex = ecb.checkForExistingRecord(pBook);
+		System.out.println(foundIndex);
+		if(foundIndex >= 0) {
+			System.out.println("There exist similar record with matching name and birthday");
+			ecb.updateRecord(pBook, foundIndex);
+			
+			//save updated record to file
+			ecb.addRecordsToFile();
+		}else {
+			ecb.addRecord(pBook);
+			
+			//save new record to file
+			ecb.addRecordsToFile();
+		}
+		
 	}
+	
+	/*
+	 * parse scanner instruction in string format
+	 * check if the instruction is valid and contain sufficient parameter like name & birthday
+	 * */
 	
 	public  boolean validateAddInstruction(String inst) {
 //		String wholeInstruction =  inst;
@@ -141,7 +162,7 @@ public class Instruction {
 //		if(isValid) {
 //			instn.
 //		}
-		instn.handleAdd("add name sujan poudel;birthday 18-07-1996;address 19 albert road strathfield;phone 0426419217;email 20028844@koi.edu.au");
+		instn.handleAdd("add name sujann poudel;birthday 18-07-1996;address 19 albert road strathfield;phone 0426419217;email 20028844@koi.edu.au");
 		System.out.println(instn.contactInformation);
 	}
 	

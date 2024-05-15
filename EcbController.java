@@ -81,6 +81,14 @@ public class EcbController {
 		this.contactRecords.add(phoneBook);
 	}
 	
+	public void updateRecord(PhoneBook phoneBook , int index) {
+		this.contactRecords.get(index).setName(phoneBook.getName());
+		this.contactRecords.get(index).setPhone(phoneBook.getPhone());
+		this.contactRecords.get(index).setBirthday(phoneBook.getBirthday());
+		this.contactRecords.get(index).setEmail(phoneBook.getEmail());
+		this.contactRecords.get(index).setAddress(phoneBook.getAddress());
+	}
+	
 	public void deleteRecord() {
 		
 	}
@@ -95,6 +103,17 @@ public class EcbController {
 	
 	public void showRecord() {
 		
+	}
+	
+	public int checkForExistingRecord(PhoneBook pb) {
+		int index = -1;
+		for(PhoneBook phoneBook : this.contactRecords ) {
+			if(phoneBook.getName().equals(pb.getName()) && phoneBook.getBirthday().equals(pb.getBirthday())) {
+				index = this.contactRecords.indexOf(phoneBook);
+				return index;
+			}
+		}
+		return index;
 	}
 	
 	public void addRecordsToFile() {
