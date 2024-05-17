@@ -20,7 +20,8 @@ public class Menu {
 		System.out.println("Delete Record:                    2");
 		System.out.println("Query Record:                     3");
 		System.out.println("Save Record:                      4");
-		System.out.println("Show All Record:                  5");
+		System.out.println("Show Phone Record:                5");
+		System.out.println("Show Deleted Phone Record:        6");
 		System.out.println("====================================");
 		
 		System.out.println("Please enter your choice:");
@@ -35,8 +36,14 @@ public class Menu {
 			case 1:
 				this.getAddInstruction();
 				break;
+			case 2:
+				this.getDeleteInsturction();
+				break;
 			case 5:
 				this.showAllRecord();
+				System.out.println("Please enter your choice:");
+				int choice = sc.nextInt();
+				this.handleChoiceActions(choice);
 			default:
 				break;
 		}
@@ -53,7 +60,13 @@ public class Menu {
 	}
 	
 	public void getDeleteInsturction() {
-		
+		String delInstruction;
+		Scanner delSc = new Scanner(System.in);
+		System.out.println("Please provide a valid delete instruction: ");
+		delInstruction = delSc.nextLine();
+		System.out.println("Instruction  Received :" + delInstruction);	
+		delSc.close();
+		inst.handleDelete(delInstruction);
 	}
 	
 	public void getSaveInstruction() {

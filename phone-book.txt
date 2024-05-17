@@ -1,24 +1,12 @@
-name sujan poudel
-birthday 0426419217
-phone 18-07-1996
-email 20028844@koi.edu.au
-address 19 albert road strathfield
+name Posephine Esmerelda Bloggs
+birthday 13-05-1980
+phone 16549853
+email j.e.bloggs@gmail.com
+address 102 Smith St, Summer hill, NSW 2130
 
-name monsoon parajuli
-birthday 0421589632
-phone 07-07-2003
-email 20028894@koi.edu.au
-address 1-17 Elsie road, Burwood
-
-name krishna khanal
-birthday 0426897112
-phone 07-07-1994
-email 20028134@koi.edu.au
-address 12 Swan Av, Richmond
-
-name sujann poudel
-birthday 18-07-1996
-phone 0426419217
-email 20028844@koi.edu.au
-address 19 albert road strathfield
+name James Smith
+birthday 23-3-1989
+phone 98765425
+email j.smith@gmail.com
+address 60 Morris St, Summer Hill, NSW 2130
 

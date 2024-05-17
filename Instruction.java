@@ -37,18 +37,15 @@ public class Instruction {
 		// if no record found then add a new one else update existing one
 		EcbController ecb=  new EcbController();
 		int foundIndex = ecb.checkForExistingRecord(pBook);
-		System.out.println(foundIndex);
 		if(foundIndex >= 0) {
 			System.out.println("There exist similar record with matching name and birthday");
 			ecb.updateRecord(pBook, foundIndex);
-			
 			//save updated record to file
-			ecb.addRecordsToFile();
+			ecb.addRecordsToFile("Updated", true);
 		}else {
 			ecb.addRecord(pBook);
-			
 			//save new record to file
-			ecb.addRecordsToFile();
+			ecb.addRecordsToFile("Added", true);
 		}
 		
 	}
@@ -82,7 +79,7 @@ public class Instruction {
 			return false;
 		}
 		
-		String name = null , birthday = null , email = "" , phone = "", address="";
+		String name = "" , birthday = "" , email = "" , phone = "", address="";
 		
 		for(int i= 0 ; i< informationInstructionArr.length ; i++) {
 			String[] informationSet  = informationInstructionArr[i].split(" " , 2);
@@ -91,7 +88,6 @@ public class Instruction {
 				System.out.println("Failure to parse command.Ivalid Command Received :"+ inst);
 				return false;
 			}
-			System.out.println(informationSet[0]);
 			if(informationSet[0].equals("name") || informationSet[0].equals("birthday") || informationSet[0].equals("phone") || informationSet[0].equals("email") || informationSet[0].equals("address")) {
 				switch (informationSet[0]) {
 					case "name":
@@ -101,6 +97,7 @@ public class Instruction {
 						}
 						name = informationSet[1];
 						this.contactInformation.put("name" , name);
+						break;
 					case "birthday":
 						if(informationSet.length < 2) {
 							System.out.println("No birthday in the instruction identified");
@@ -142,6 +139,7 @@ public class Instruction {
 			}
 		}
 		
+//		System.out.println("Name:" + name + "Birthday:" + birthday);
 		if(!name.isEmpty() && !birthday.isEmpty()) {
 			return true;
 		}
@@ -150,20 +148,75 @@ public class Instruction {
 		return false;
 		
 	}
+
+	public void handleDelete(String inst) {
+		this.resetContactInformation();
+		Boolean isValid = this.validateDeleteInstruction(inst);
+		if(!isValid) {
+			System.out.println("Unable to proceed with delete instruction");
+			return;
+		}
+		EcbController ecb =  new EcbController();
+		String name = (String)this.contactInformation.get("name");
+		String dob = (String)this.contactInformation.get("birthday");
+		if(dob.isEmpty()) {
+			//delete all records having the name
+			ecb.deleteRecordByName(name);
+			return;
+		}
+		
+		ecb.deleteRecord(name , dob);
+		
+		//delete record having name and birthday
+	}
+	
+	public boolean validateDeleteInstruction(String inst) {
+		this.resetContactInformation();
+		String wholeInstructionArr[] = inst.split(" ", 2);
+		
+		// check if the first word of delete instruction has delete command
+		if(!wholeInstructionArr[0].equals("delete")) {
+			System.out.println("Invalid Delete Command (expected 'delete') , Received " + wholeInstructionArr[0]);
+			return false;
+		}
+		
+		//check if the instruction has sufficient length
+		if(wholeInstructionArr.length < 2) {
+			System.out.println("Incomplete Delete Instruction Received:  " + inst);
+			return false;
+		}
+		
+		//check for name and dateofbirth values by spliting
+		//if array has one item , it is name
+		String[] delInstructionArray = wholeInstructionArr[1].split(";");
+		String name = delInstructionArray[0];
+		if(name.isEmpty()) {
+			System.out.println("Name is expected in delete instruction");
+			return false;
+		}
+		String birthday = "";
+		if(delInstructionArray.length >= 2) {
+			birthday =  delInstructionArray[1];
+		}
+		this.contactInformation.put("name", name);
+		this.contactInformation.put("birthday", birthday);
+		return true;
+	}
+	
+	public void resetContactInformation() {
+		this.contactInformation.put("name" , "");
+		this.contactInformation.put("phone", "");
+		this.contactInformation.put("birthday", "");
+		this.contactInformation.put("email", "");
+		this.contactInformation.put("address", "");
+	}
+	
 	
 	public static void main(String[] args) {
-//		validateAndAddInstruction("add name sujan poudel;birthday 18-07-1996;address 19 albert road strathfield");
-//		validateAddInstruction("add something");
-//		validateAddInstruction("add something");
-//		validateAddInstruction("add name ; dob;");
 		Instruction instn = new Instruction();
-//		Boolean isValid = instn.handleAdd("add name sujan poudel;birthday 18-07-1996;address 19 albert road strathfield;phone 0426419217;email 20028844@koi.edu.au");
-//		System.out.println(isValid);
-//		if(isValid) {
-//			instn.
-//		}
-		instn.handleAdd("add name sujann poudel;birthday 18-07-1996;address 19 albert road strathfield;phone 0426419217;email 20028844@koi.edu.au");
-		System.out.println(instn.contactInformation);
+//		instn.handleAdd("add name sujann poudel;birthday 18-07-1996;address 19 albert road strathfield;phone 0426419217;email 20028844@koi.edu.au");
+//		System.out.println(instn.contactInformation);
+		instn.handleDelete("delete sujan poudel");
 	}
 	
 	
