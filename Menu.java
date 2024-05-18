@@ -19,8 +19,8 @@ public class Menu {
 		System.out.println("Add Record:                       1");
 		System.out.println("Delete Record:                    2");
 		System.out.println("Query Record:                     3");
-		System.out.println("Save Record:                      4");
-		System.out.println("Show Phone Record:                5");
+		System.out.println("Show All Phone Record:                5");
+    System.out.pritnln("Show Queried Record"              4");
 		System.out.println("Show Deleted Phone Record:        6");
 		System.out.println("====================================");
 		
@@ -38,6 +38,12 @@ public class Menu {
 				break;
 			case 2:
 				this.getDeleteInsturction();
+				break;
+			case 3:
+				this.getQueryInstruction();
+				break;
+			case 4:
+				this.showAllQueryRecord();
 				break;
 			case 5:
 				this.showAllRecord();
@@ -74,7 +80,19 @@ public class Menu {
 	}
 	
 	public void getQueryInstruction() {
-		
+		String queryInstruction;
+		Scanner querySc = new Scanner(System.in);
+		System.out.println("Please provide a valid query instruction: ");
+		queryInstruction = querySc.nextLine();
+		System.out.println("Query  Received :" + queryInstruction);	
+		querySc.close();
+		inst.handleQuery(queryInstruction);
+	}
+	
+	public void showAllQueryRecord() {
+		EcbController ecb = new EcbController();
+		System.out.println("Saved Query Records with queries.");
+		ecb.loadAllQueryRecords();
 	}
 	
 	public void showAllRecord() {

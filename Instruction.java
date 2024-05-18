@@ -149,6 +149,18 @@ public class Instruction {
 		
 	}
 
+	public void handleQuery(String queryInstruction) {
+		EcbController ecb=  new EcbController();
+		 String[] parts = queryInstruction.split(" ", 3);
+	        if (parts.length == 3 && parts[0].equalsIgnoreCase("query")) {
+	            String field = parts[1];
+	            String value = parts[2];
+	            ecb.queryRecord(field, value);
+	        } else {
+	            System.out.println("Invalid query instruction format.");
+	        }
+	}
+
 	public void handleDelete(String inst) {
 		this.resetContactInformation();
 		Boolean isValid = this.validateDeleteInstruction(inst);

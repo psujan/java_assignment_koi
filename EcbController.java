@@ -10,8 +10,9 @@ import java.io.PrintWriter;
 
 public class EcbController {
 	private ArrayList<PhoneBook> contactRecords = new ArrayList<PhoneBook>();
-	private ArrayList<PhoneBook> deletedRecords = new ArrayList<PhoneBook>();
-	private ArrayList<PhoneBook> queryRecords  =  new ArrayList<PhoneBook>();
+	private ArrayList<PhoneBook> deletedRecords = new ArrayList<PhoneBook>();	
+	private ArrayList<QueryBook> queryRecords = new ArrayList<QueryBook>();
+
 	
 	public EcbController() {
 		this.loadContactRecord();
@@ -74,6 +75,105 @@ public class EcbController {
 			e.printStackTrace();
 		}
 		fs.close();
+	}
+
+	public void queryRecord(String field, String value) {
+        boolean found = false;
+        for (PhoneBook record : contactRecords) {
+            boolean match = false;
+            switch (field.toLowerCase()) {
+                case "name":
+                    match = record.getName().equalsIgnoreCase(value);
+                    break;
+                case "birthday":
+                    match = record.getBirthday().equals(value);
+                    break;
+                case "phone":
+                    match = record.getPhone().equals(value);
+                    break;
+                default:
+                    System.out.println("Invalid query field: " + field);
+                    return;
+            }
+            if (match) {
+               
+                String lineToPrepend = "-----query " + field + " " + value + " -----";
+                QueryBook queryBook = new QueryBook(lineToPrepend, record.getName(), record.getBirthday(), record.getPhone(), record.getEmail(), record.getAddress());
+                queryRecords.add(queryBook);
+                System.out.printf("checking saved data" + queryRecords);
+                addQueryRecordToFile();
+                
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No records found for the query: " + field + " " + value);
+        }
+    }
+
+	public void addQueryRecordToFile() {
+		System.out.println("Query Records \n");
+		  String filePath = "/home/sandesh/eclipse-workspace/jaavaclass/query-book.txt";
+		  try (FileWriter writer = new FileWriter(filePath, true)) {
+	            for (QueryBook queryRecord : queryRecords) {
+	                writer.write(queryRecord.toString() + "\n\n");
+	            }
+	            System.out.println("Data written to the file successfully.");
+	        } catch (IOException e) {
+	            System.out.println("An error occurred while writing to the file: " + e.getMessage());
+	            e.printStackTrace();
+	        }
+	}
+	public void loadAllQueryRecords() {
+//		String line = null;
+		try ( Scanner fs = new Scanner(new File("/home/sandesh/eclipse-workspace/jaavaclass/query-book.txt"))) {
+		        String query = "", name = "", birthday = "", phone = "", email = "", address = "";
+
+		        while (fs.hasNextLine()) {
+		             String line = fs.nextLine().trim();
+		            if (line.startsWith("Query: -----")) {
+		                query = line.substring(7).trim();
+		            } else if (line.startsWith("Name: ")) {
+		                name = line.substring(6).trim();
+		            } else if (line.startsWith("Birthday: ")) {
+		                birthday = line.substring(10).trim();
+		            } else if (line.startsWith("Email: ")) {
+		                email = line.substring(7).trim();
+		            } else if (line.startsWith("Phone: ")) {
+		                phone = line.substring(7).trim();
+		            } else if (line.startsWith("Address: ")) {
+		                address = line.substring(9).trim();
+		            } else if (line.isEmpty()) {
+		            
+		            	 if (!query.isEmpty()) {
+		                     QueryBook queryBook = new QueryBook(query, name, birthday, phone, email, address);
+		                     queryRecords.add(queryBook);
+		                     // Reset fields for next record
+		                     query = name = birthday = phone = email = address = "";
+		                 }
+		                
+		            }
+		        }
+		        // Add the last record if it doesn't end with an empty line
+		        if (!query.isEmpty() || !name.isEmpty() || !birthday.isEmpty() || !phone.isEmpty() || !email.isEmpty() || !address.isEmpty()) {
+		            QueryBook queryBook = new QueryBook(query, name, birthday, phone, email, address);
+		            queryRecords.add(queryBook);
+		        }
+		        System.out.println("Query Records loaded successfully from the file.");
+		        showAllQueryRecords();
+		    } catch (Exception e) {
+		        System.out.println("An error occurred while reading the file: " + e.getMessage());
+		        e.printStackTrace();
+		    }
+		
+		
+	}
+	
+	public void showAllQueryRecords() {
+//		System.out.printf("Mailo error" + queryRecords);
+		for (QueryBook queryElement : queryRecords) {
+            System.out.println(queryElement);
+        }
 	}
 	
 	public void loadDeletedContactRecord() {
