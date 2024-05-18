@@ -10,9 +10,9 @@ import java.io.PrintWriter;
 
 public class EcbController {
 	private ArrayList<PhoneBook> contactRecords = new ArrayList<PhoneBook>();
-	private ArrayList<PhoneBook> deletedRecords = new ArrayList<PhoneBook>();
-	
+	private ArrayList<PhoneBook> deletedRecords = new ArrayList<PhoneBook>();	
 	private ArrayList<QueryBook> queryRecords = new ArrayList<QueryBook>();
+
 	
 	public EcbController() {
 		this.loadContactRecord();
@@ -77,7 +77,6 @@ public class EcbController {
 		fs.close();
 	}
 
-	// sandesh code for query record
 	public void queryRecord(String field, String value) {
         boolean found = false;
         for (PhoneBook record : contactRecords) {

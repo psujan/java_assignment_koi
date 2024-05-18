@@ -148,7 +148,7 @@ public class Instruction {
 		return false;
 		
 	}
-// Sandesh Part
+
 	public void handleQuery(String queryInstruction) {
 		EcbController ecb=  new EcbController();
 		 String[] parts = queryInstruction.split(" ", 3);
@@ -160,7 +160,6 @@ public class Instruction {
 	            System.out.println("Invalid query instruction format.");
 	        }
 	}
-
 
 	public void handleDelete(String inst) {
 		this.resetContactInformation();

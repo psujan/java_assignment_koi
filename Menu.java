@@ -19,8 +19,8 @@ public class Menu {
 		System.out.println("Add Record:                       1");
 		System.out.println("Delete Record:                    2");
 		System.out.println("Query Record:                     3");
-		System.out.println("Show all deleted query:           4");
-		System.out.println("Show Phone Record:                5");
+		System.out.println("Show All Phone Record:                5");
+    System.out.pritnln("Show Queried Record"              4");
 		System.out.println("Show Deleted Phone Record:        6");
 		System.out.println("====================================");
 		
