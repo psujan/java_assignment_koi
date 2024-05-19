@@ -20,6 +20,7 @@ public class Instruction {
 	
 	
 	public void handleAdd(String inst) {
+		this.resetContactInformation();
 		Boolean isValid = validateAddInstruction(inst);
 		if(!isValid) {
 			System.out.println("Failed to add record from provided instruction :" + inst);
@@ -33,10 +34,11 @@ public class Instruction {
 				(String)this.contactInformation.get("email"),
 				(String)this.contactInformation.get("address")
 				);
+		System.out.println(pBook.toString());
 		// check for existing record
 		// if no record found then add a new one else update existing one
 		EcbController ecb=  new EcbController();
-		int foundIndex = ecb.checkForExistingRecord(pBook);
+		int foundIndex = ecb.checkForExistingRecord( (String)this.contactInformation.get("name"), (String)this.contactInformation.get("birthday"));
 		if(foundIndex >= 0) {
 			System.out.println("There exist similar record with matching name and birthday");
 			ecb.updateRecord(pBook, foundIndex);

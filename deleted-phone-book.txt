@@ -64,3 +64,21 @@ phone 13649852
 email j.jones@fanfare.com.au
 address 2 Fairmount St, Dulwich Hill, NSW 2203
 
+name John Martin
+birthday 04-05-1990
+phone 
+email 
+address 
+
+name John Martin
+birthday 
+phone 04-05-1990
+email john_martin@gmail.com
+address 
+
+name Posephine Esmerelda Bloggs
+birthday 13-05-1980
+phone 16549853
+email j.e.bloggs@gmail.com
+address 102 Smith St, Summer hill, NSW 2130
+

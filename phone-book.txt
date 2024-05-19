@@ -10,3 +10,29 @@ phone 98765425
 email j.smith@gmail.com
 address 60 Morris St, Summer Hill, NSW 2130
 
+name John Jones
+birthday 18-09-1968
+phone 13649852
+email j.jones@fanfare.com.au
+address 2 Fairmount St, Dulwich Hill, NSW 2203
+
+name trilok sharma
+birthday 01-01-1990
+phone 
+email trilok_sharma@hotmail.com
+address 2 Fairmount St, Dulwich Hill, NSW 2203
+
+name sujan poudel
+birthday 01-05-1990
+phone 
+email sujan@hotmail.com
+address 4 Railway Pde, Burwood
+
+name  manoj sharma
+birthday 21-08-1994
+phone 
+email 
+address 
+
+
+

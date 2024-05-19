@@ -13,22 +13,27 @@ public class Menu {
 	}
 	
 	public void initMenu() {
-		int choice;
-//		Scanner sc = new Scanner(System.in);
-		System.out.println("=========WELCOME TO ECB SYSTEM=====");
-		System.out.println("Add Record:                       1");
-		System.out.println("Delete Record:                    2");
-		System.out.println("Query Record:                     3");
-		System.out.println("Show All Phone Record:                5");
-    System.out.pritnln("Show Queried Record"              4");
-		System.out.println("Show Deleted Phone Record:        6");
-		System.out.println("====================================");
-		
-		System.out.println("Please enter your choice:");
-		choice = sc.nextInt();
-		System.out.println("Your Choice : " + choice);
-//		sc.close();
-		this.handleChoiceActions(choice);
+		try {
+			int choice;
+//			Scanner sc = new Scanner(System.in);
+			System.out.println("=========WELCOME TO ECB SYSTEM=====");
+			System.out.println("Add Record:                       1");
+			System.out.println("Delete Record:                    2");
+			System.out.println("Query Record:                     3");
+			System.out.println("Show Queried Record:              4");
+			System.out.println("Show All Phone Record:            5");
+			System.out.println("====================================");
+			
+			System.out.println("Please enter your choice:");
+			choice = sc.nextInt();
+			System.out.println("Your Choice : " + choice);
+//			sc.close();
+			this.handleChoiceActions(choice);
+		}catch(Exception e) {
+			System.out.println("System error occured at runtime. This may be due to invalid choice value");
+			System.exit(0);
+//			e.printStackTrace();
+		}
 	}
 	
 	public void handleChoiceActions(int ch) {
@@ -44,6 +49,9 @@ public class Menu {
 				break;
 			case 4:
 				this.showAllQueryRecord();
+				System.out.println("Please enter your choice:");
+				int chc = sc.nextInt();
+				this.handleChoiceActions(chc);
 				break;
 			case 5:
 				this.showAllRecord();
@@ -51,6 +59,8 @@ public class Menu {
 				int choice = sc.nextInt();
 				this.handleChoiceActions(choice);
 			default:
+				System.out.println("Your choice doesn't match to any desired options . Please try by providing a valid choice number");
+				System.exit(0);
 				break;
 		}
 	}

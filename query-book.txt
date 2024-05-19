@@ -1,0 +1,42 @@
+Query: -----query name Krishna Khanal -----
+Name: Krishna Khanal
+Birthday: 08-07-1994
+Email: krishna_khanal@gmail.com
+Phone: 
+Address: 
+
+Query: -----query name Krishna Khanal -----
+Name: Krishna Khanal
+Birthday: 08-07-1994
+Email: krishna_khanal@gmail.com
+Phone: 
+Address: 
+
+Query: -----query name Krishna Khanal -----
+Name: Krishna Khanal
+Birthday: 
+Email: 
+Phone: 05-05-1999
+Address: 12 Swan Av,Strathfield
+
+Query: -----query name Krishna Khanal -----
+Name: Krishna Khanal
+Birthday: 08-07-1994
+Email: krishna_khanal@gmail.com
+Phone: 
+Address: 
+
+Query: -----query name Krishna Khanal -----
+Name: Krishna Khanal
+Birthday: 08-07-1994
+Email: krishna_khanal@gmail.com
+Phone: 
+Address: 
+
+Query: -----query name Krishna Khanal -----
+Name: Krishna Khanal
+Birthday: 
+Email: 
+Phone: 05-05-1999
+Address: 12 Swan Av,Strathfield
+

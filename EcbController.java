@@ -1,6 +1,8 @@
 package ecbsystem;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -113,7 +115,7 @@ public class EcbController {
 
 	public void addQueryRecordToFile() {
 		System.out.println("Query Records \n");
-		  String filePath = "/home/sandesh/eclipse-workspace/jaavaclass/query-book.txt";
+		  String filePath = "/C:\\\\\\\\Users\\\\\\\\User\\\\\\\\eclipse-workspace\\\\\\\\javalab\\\\\\\\src\\\\\\\\ecbsystem\\\\\\\\query-book.txt";
 		  try (FileWriter writer = new FileWriter(filePath, true)) {
 	            for (QueryBook queryRecord : queryRecords) {
 	                writer.write(queryRecord.toString() + "\n\n");
@@ -126,7 +128,7 @@ public class EcbController {
 	}
 	public void loadAllQueryRecords() {
 //		String line = null;
-		try ( Scanner fs = new Scanner(new File("/home/sandesh/eclipse-workspace/jaavaclass/query-book.txt"))) {
+		try ( Scanner fs = new Scanner(new File("/C:\\\\Users\\\\User\\\\eclipse-workspace\\\\javalab\\\\src\\\\ecbsystem\\\\query-book.txt"))) {
 		        String query = "", name = "", birthday = "", phone = "", email = "", address = "";
 
 		        while (fs.hasNextLine()) {
@@ -305,11 +307,15 @@ public class EcbController {
 		
 	}
 	
-	public int checkForExistingRecord(PhoneBook pb) {
+	public int checkForExistingRecord(String name , String birthday) {
 		int index = -1;
+//		System.out.println("Checking for " + name +birthday);
 		for(PhoneBook phoneBook : this.contactRecords ) {
-			if(phoneBook.getName().equals(pb.getName()) && phoneBook.getBirthday().equals(pb.getBirthday())) {
+//			System.out.println(phoneBook.getName() + " name :" + name);
+//			System.out.println(phoneBook.getBirthday() + " birthday :" + birthday);
+			if(phoneBook.getName().equals(name) && phoneBook.getBirthday().equals(birthday)) {
 				index = this.contactRecords.indexOf(phoneBook);
+				System.out.println("Found");
 				return index;
 			}
 		}
