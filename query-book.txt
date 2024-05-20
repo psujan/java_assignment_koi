@@ -40,3 +40,10 @@ Email:
 Phone: 05-05-1999
 Address: 12 Swan Av,Strathfield
 
+Query: -----query name sujan poudel -----
+Name: sujan poudel
+Birthday: 
+Email: sujan@hotmail.com
+Phone: 01-05-1990
+Address: 4 Railway Pde, Burwood
+
