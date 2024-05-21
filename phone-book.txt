@@ -1,38 +1,48 @@
 name Posephine Esmerelda Bloggs
-birthday 13-05-1980
-phone 16549853
+birthday 16549853
+phone 13-05-1980
 email j.e.bloggs@gmail.com
 address 102 Smith St, Summer hill, NSW 2130
 
 name James Smith
-birthday 23-3-1989
-phone 98765425
+birthday 98765425
+phone 23-3-1989
 email j.smith@gmail.com
 address 60 Morris St, Summer Hill, NSW 2130
 
-name John Jones
-birthday 18-09-1968
-phone 13649852
-email j.jones@fanfare.com.au
-address 2 Fairmount St, Dulwich Hill, NSW 2203
+name Krishna Khanal
+birthday 08-07-1994
+phone 
+email krishna_khanal@gmail.com
+address 
 
-name trilok sharma
+name Krishna Khanal
+birthday 
+phone 05-05-1999
+email 
+address 12 Swan Av,Strathfield
+
+name ram poudel
+birthday 
+phone 05-05-1990
+email 
+address 
+
+name ram poudel
+birthday 05-05-1990
+phone 
+email ram_pdl@hotmail.com
+address 
+
+name siv
 birthday 01-01-1990
-phone 
-email trilok_sharma@hotmail.com
-address 2 Fairmount St, Dulwich Hill, NSW 2203
-
-name sujan poudel
-birthday 01-05-1990
-phone 
-email sujan@hotmail.com
-address 4 Railway Pde, Burwood
-
-name  manoj sharma
-birthday 21-08-1994
 phone 
 email 
 address 
 
-
+name manoj sharma
+birthday 
+phone 01-01-1990
+email 
+address 
 

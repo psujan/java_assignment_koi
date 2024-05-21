@@ -12,10 +12,12 @@ public class Menu {
 		
 	}
 	
+	/*
+	 * Shows The Text Menu
+	 * If any exception occured then it exits the system*/
 	public void initMenu() {
 		try {
 			int choice;
-//			Scanner sc = new Scanner(System.in);
 			System.out.println("=========WELCOME TO ECB SYSTEM=====");
 			System.out.println("Add Record:                       1");
 			System.out.println("Delete Record:                    2");
@@ -27,14 +29,19 @@ public class Menu {
 			System.out.println("Please enter your choice:");
 			choice = sc.nextInt();
 			System.out.println("Your Choice : " + choice);
-//			sc.close();
 			this.handleChoiceActions(choice);
 		}catch(Exception e) {
 			System.out.println("System error occured at runtime. This may be due to invalid choice value");
 			System.exit(0);
-//			e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
+	
+	/*
+	 * integer ch -> choice of user
+	 * manage switch cases to trigger user actions based on chode
+	 * by default it closes the system resources
+	 * */
 	
 	public void handleChoiceActions(int ch) {
 		switch(ch) {

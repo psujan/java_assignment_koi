@@ -1,7 +1,9 @@
 package ecbsystem;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 
 /*
  *This class parse and validates instruction received from scanner input
@@ -9,13 +11,41 @@ import java.util.HashMap;
  * */
 public class Instruction {
 	HashMap<String , Object> contactInformation = new HashMap<String , Object>();
+	public String[] instructions = new String[3];
 	
 	public Instruction() {
+		System.out.println("Calling Instruction");
 		this.contactInformation.put("name" , "");
 		this.contactInformation.put("birthday", "");
 		this.contactInformation.put("phone", "");
 		this.contactInformation.put("email", "");
 		this.contactInformation.put("address", "");
+		this.loadInstructions();
+	}
+	
+	public void loadInstructions() {
+		Scanner fs = null;
+		String line = "";
+		try {
+			int i = 0;
+			File file = new File("/C:\\Users\\User\\eclipse-workspace\\javalab\\src\\ecbsystem\\phone-book-instructions.txt"); 
+			fs = new Scanner(file);
+			do {
+				line = fs.nextLine();
+				if(line == "") {
+					break;
+				}
+				if(!line.isEmpty()) {
+					this.instructions[i] =  line;
+				}
+				i++;
+			}while(fs.hasNextLine());			
+//			System.out.println(Arrays.toString(this.instructions));
+		}catch(Exception e) {
+			System.out.println("System Error While Loading Instructions From File");
+			e.printStackTrace();
+		}
+		fs.close();
 	}
 	
 	
@@ -178,10 +208,9 @@ public class Instruction {
 			ecb.deleteRecordByName(name);
 			return;
 		}
-		
+		//delete record having name and birthday
 		ecb.deleteRecord(name , dob);
 		
-		//delete record having name and birthday
 	}
 	
 	public boolean validateDeleteInstruction(String inst) {
@@ -224,15 +253,5 @@ public class Instruction {
 		this.contactInformation.put("email", "");
 		this.contactInformation.put("address", "");
 	}
-	
-	
-	public static void main(String[] args) {
-		Instruction instn = new Instruction();
-//		instn.handleAdd("add name sujann poudel;birthday 18-07-1996;address 19 albert road strathfield;phone 0426419217;email 20028844@koi.edu.au");
-//		System.out.println(instn.contactInformation);
-		instn.handleDelete("delete sujan poudel");
-	}
-	
-	
 	
 }

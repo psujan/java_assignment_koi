@@ -32,6 +32,8 @@ public class EcbController {
 		String name = "" , birthday="" , phone="", email="", address="";
 		String line = null;
 		try {
+		//  create a new file in .txt format in package root directory
+		// may need to provide actual path depending on the operating system
 			File file = new File("/C:\\Users\\User\\eclipse-workspace\\javalab\\src\\ecbsystem\\phone-book.txt"); 
 			fs = new Scanner(file);
 			do {
@@ -39,7 +41,9 @@ public class EcbController {
 				if(line == null) {
 					break;
 				}
+				// proceed only if line has some text data
 				if(!line.isEmpty()) {
+					// lopp to five times as we have 5 attributes in phonebook
 					for(int i = 0;  i< 5; i++) {
 						String[] contactLineArr = line.split(" " , 2);
 						if(contactLineArr.length > 0 && !contactLineArr[0].isEmpty()) {
@@ -79,7 +83,8 @@ public class EcbController {
 		}
 		fs.close();
 	}
-
+	
+	
 	public void queryRecord(String field, String value) {
         boolean found = false;
         for (PhoneBook record : contactRecords) {
@@ -127,6 +132,7 @@ public class EcbController {
 	            e.printStackTrace();
 	        }
 	}
+	
 	public void loadAllQueryRecords() {
 //		String line = null;
 		try ( Scanner fs = new Scanner(new File("/C:\\\\Users\\\\User\\\\eclipse-workspace\\\\javalab\\\\src\\\\ecbsystem\\\\query-book.txt"))) {
@@ -296,24 +302,10 @@ public class EcbController {
 		this.addRecordsToFile("Saved" , false);
 	}
 	
-	public void queryRecord() {
-		
-	}
-	
-	public void saveRecord() {
-		
-	}
-	
-	public void showRecord() {
-		
-	}
 	
 	public int checkForExistingRecord(String name , String birthday) {
 		int index = -1;
-//		System.out.println("Checking for " + name +birthday);
 		for(PhoneBook phoneBook : this.contactRecords ) {
-//			System.out.println(phoneBook.getName() + " name :" + name);
-//			System.out.println(phoneBook.getBirthday() + " birthday :" + birthday);
 			if(phoneBook.getName().equals(name) && phoneBook.getBirthday().equals(birthday)) {
 				index = this.contactRecords.indexOf(phoneBook);
 				System.out.println("Found");
@@ -323,6 +315,15 @@ public class EcbController {
 		return index;
 	}
 	
+	/**
+	 * add text record to the file
+	 * the data has a specific format like
+	 * name sujan poudel
+	 * birtthday 07-07-1996
+	 * email sujan.student@koi.edu.au
+	 * phone 0426419217
+	 * address 11 Swan Av, Strathfield
+	 */
 	public void addRecordsToFile(String action , Boolean showMessage) {
 		try {
 			File f = new File("/C:\\Users\\User\\eclipse-workspace\\javalab\\src\\ecbsystem\\phone-book.txt");
@@ -365,10 +366,5 @@ public class EcbController {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public static void main(String[] args) {
-		EcbController ecb =  new EcbController();
-		System.out.println(ecb);
 	}
 }

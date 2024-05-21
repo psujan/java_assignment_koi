@@ -1,84 +1,102 @@
 name monsoon parajuli
-birthday 0421589632
-phone 07-07-2003
-email 20028894@koi.edu.au
-address 1-17 Elsie road, Burwood
-
-name monsoon parajuli
 birthday 07-07-2003
 phone 0421589632
 email 20028894@koi.edu.au
 address 1-17 Elsie road, Burwood
 
+name monsoon parajuli
+birthday 0421589632
+phone 07-07-2003
+email 20028894@koi.edu.au
+address 1-17 Elsie road, Burwood
+
 name HAry Kisan
-birthday 
-phone HAry Kisan
-email 
-address 
-
-name Jo Bloggs
-birthday 0425896312
-phone 08-07-1980
-email 
-address 
-
-name Jo Bloggs
-birthday 08-07-1980
-phone 88884444
-email 
-address 
-
-name krishna khanal
-birthday 07-07-1994
-phone 0426897112
-email 20028134@koi.edu.au
-address 12 Swan Av, Richmond
-
-name sujan poudel
-birthday 18-07-1996
-phone 0426419217
-email 20028844@koi.edu.au
-address 19 albert road strathfield
-
-name Jo bloggs
-birthday 08-07-1980
+birthday HAry Kisan
 phone 
 email 
 address 
 
-name sujann poudel
+name Jo Bloggs
+birthday 08-07-1980
+phone 0425896312
+email 
+address 
+
+name Jo Bloggs
+birthday 88884444
+phone 08-07-1980
+email 
+address 
+
+name krishna khanal
+birthday 0426897112
+phone 07-07-1994
+email 20028134@koi.edu.au
+address 12 Swan Av, Richmond
+
+name sujan poudel
 birthday 0426419217
 phone 18-07-1996
 email 20028844@koi.edu.au
 address 19 albert road strathfield
 
-name Sudarshan Poudel
+name Jo bloggs
 birthday 
-phone 27-08-2003
+phone 08-07-1980
+email 
+address 
+
+name sujann poudel
+birthday 18-07-1996
+phone 0426419217
+email 20028844@koi.edu.au
+address 19 albert road strathfield
+
+name Sudarshan Poudel
+birthday 27-08-2003
+phone 
 email 
 address bharatpur-04 , Lanku
 
 name John Jones
-birthday 18-09-1968
-phone 13649852
+birthday 13649852
+phone 18-09-1968
 email j.jones@fanfare.com.au
 address 2 Fairmount St, Dulwich Hill, NSW 2203
 
 name John Martin
-birthday 04-05-1990
-phone 
+birthday 
+phone 04-05-1990
 email 
 address 
 
 name John Martin
-birthday 
-phone 04-05-1990
+birthday 04-05-1990
+phone 
 email john_martin@gmail.com
 address 
 
 name Posephine Esmerelda Bloggs
-birthday 13-05-1980
-phone 16549853
+birthday 16549853
+phone 13-05-1980
 email j.e.bloggs@gmail.com
 address 102 Smith St, Summer hill, NSW 2130
+
+name John Martin
+birthday 
+phone 04-05-1990
+email 
+address 
+
+name John Martin
+birthday 04-05-1990
+phone 
+email john_martin@gmail.com
+address 
+
+name Ria Ria
+birthday 07-07-1996
+phone 
+email 
+address 
 
