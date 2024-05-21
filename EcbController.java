@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -34,7 +33,7 @@ public class EcbController {
 		try {
 		//  create a new file in .txt format in package root directory
 		// may need to provide actual path depending on the operating system
-			File file = new File("/C:\\Users\\User\\eclipse-workspace\\javalab\\src\\ecbsystem\\phone-book.txt"); 
+			File file = new File("phone-book.txt"); 
 			fs = new Scanner(file);
 			do {
 				line = fs.nextLine();
@@ -121,7 +120,7 @@ public class EcbController {
 
 	public void addQueryRecordToFile() {
 		System.out.println("Query Records \n");
-		  String filePath = "/C:\\\\\\\\Users\\\\\\\\User\\\\\\\\eclipse-workspace\\\\\\\\javalab\\\\\\\\src\\\\\\\\ecbsystem\\\\\\\\query-book.txt";
+		  String filePath = "query-book.txt";
 		  try (FileWriter writer = new FileWriter(filePath, true)) {
 	            for (QueryBook queryRecord : queryRecords) {
 	                writer.write(queryRecord.toString() + "\n\n");
@@ -135,7 +134,7 @@ public class EcbController {
 	
 	public void loadAllQueryRecords() {
 //		String line = null;
-		try ( Scanner fs = new Scanner(new File("/C:\\\\Users\\\\User\\\\eclipse-workspace\\\\javalab\\\\src\\\\ecbsystem\\\\query-book.txt"))) {
+		try ( Scanner fs = new Scanner(new File("query-book.txt"))) {
 		        String query = "", name = "", birthday = "", phone = "", email = "", address = "";
 
 		        while (fs.hasNextLine()) {
@@ -190,7 +189,7 @@ public class EcbController {
 		String name = "" , birthday="" , phone="", email="", address="";
 		String line = null;
 		try {
-			File file = new File("/C:\\Users\\User\\eclipse-workspace\\javalab\\src\\ecbsystem\\deleted-phone-book.txt"); 
+			File file = new File("deleted-phone-book.txt"); 
 			delFile = new Scanner(file);
 			do {
 				line = delFile.nextLine();
@@ -326,7 +325,7 @@ public class EcbController {
 	 */
 	public void addRecordsToFile(String action , Boolean showMessage) {
 		try {
-			File f = new File("/C:\\Users\\User\\eclipse-workspace\\javalab\\src\\ecbsystem\\phone-book.txt");
+			File f = new File("phone-book.txt");
 			f.createNewFile();
 			PrintWriter pw =  new PrintWriter(f);
 			for(PhoneBook pb : contactRecords) {
@@ -348,7 +347,7 @@ public class EcbController {
 	
 	public void addDeletedRecordsToFile(Boolean showMessage) {
 		try {
-			File f = new File("/C:\\Users\\User\\eclipse-workspace\\javalab\\src\\ecbsystem\\deleted-phone-book.txt");
+			File f = new File("deleted-phone-book.txt");
 			f.createNewFile();
 			PrintWriter pw =  new PrintWriter(f);
 			for(PhoneBook pb : this.deletedRecords) {

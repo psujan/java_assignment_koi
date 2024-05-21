@@ -1,5 +1,8 @@
 package ecbsystem;
 
+
+/*
+ * To run the main it may be required to specify the filepaths manually based on operating system*/
 public class Main {
 	
 	// Driver main method for the application
